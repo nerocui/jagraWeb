@@ -6,6 +6,7 @@ import useStyle from '../../style/taskList';
 import TaskCreator from './TaskCreator';
 import posed from 'react-pose';
 import { tween } from "popmotion";
+import { withRouter } from 'react-router-dom';
 
 const Add1 = posed.div({
     normal:{rotate: 0, scale: 1, y: '.9rem', transition: (props: any) => tween({...props, duration:400})},
@@ -45,7 +46,7 @@ const TaskList = (props: any) => {
             </PosedTaskCreatorContainer>
             {props.tasks.map((task: any) => {
                 return (
-                    <div key={task.id} className={classes.taskItem}>
+                    <div onClick={() => props.history.push('/task/'+task.id)} key={task.id} className={classes.taskItem}>
                         <Stack horizontal horizontalAlign="space-between" className={classes.content}>
                             <h3>{task.title}</h3>
                             <Stack.Item>
@@ -65,5 +66,5 @@ function MapStateToProps(state: State) {
         theme: state.ThemeState.theme,
     };
 }
-
-export default connect(MapStateToProps)(TaskList);
+const RoutedTaskList = withRouter(TaskList);
+export default connect(MapStateToProps)(RoutedTaskList);

@@ -1,4 +1,5 @@
 import {createUseStyles} from 'react-jss';
+import { pointer } from 'popmotion';
 
 const useStyles = createUseStyles({
     root: {
@@ -55,6 +56,7 @@ const useStyles = createUseStyles({
         position: 'absolute',
         top: '50%',
         transform: 'translateY(-50%)',
+        cursor: 'pointer',
     }
 });
 

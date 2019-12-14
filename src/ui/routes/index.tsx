@@ -12,6 +12,7 @@ import { State } from '../../models';
 import LoadingPage from '../pages/LoadingPage';
 import OrganizationsPage from '../pages/OrganizationsPage';
 import OrganizationDetailPage from '../pages/OrganizationDetailPage';
+import TaskDetailPage from '../pages/TaskDetailPage';
 
 const routes = (props: any) => {
 	return (
@@ -22,6 +23,7 @@ const routes = (props: any) => {
 					<PublicRoute path='/' exact component={LoginPage} />
 					<PublicRoute path='/signup' exact component={SignupPage} />
 					<PrivateRoute path='/dashboard' exact component={Dashboard} />
+					<PrivateRoute path='/task/:id' exact component={TaskDetailPage} />
 					<PrivateRoute path='/organizations/new' exact component={OrganizationCreator} />
 					<PrivateRoute path='/organizations' exact component={OrganizationsPage} />
 					<PrivateRoute path='/organization/:id' exact component={OrganizationDetailPage} />
